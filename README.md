@@ -17,3 +17,4 @@ kubectl proxy
 ## Labs
 
 * [Custom Scheduler](docs/scheduler.md)
+* [Kubernetes TLS secrets backed by LetsEncrypt](docs/certificate-manager.md)

@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tls-app
+  labels:
+    app: tls-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tls-app
+    spec:
+      containers:
+      - name: tls-app
+        image: kelseyhightower/tls-app:1.0.0
+        args:
+          - "-tls-cert=/etc/tls/tls.crt"
+          - "-tls-key=/etc/tls/tls.key"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 443 
+        resources:
+          limits:
+            memory: "50Mi"
+            cpu: ".1"
+        volumeMounts:
+          - name: tls
+            mountPath: /etc/tls
+      volumes:
+        - name: tls
+          secret:
+            secretName: hightowerlabs.com
