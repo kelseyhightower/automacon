@@ -3,4 +3,4 @@
 kubectl delete deployments nginx kube-cert-manager scheduler tls-app
 kubectl delete certificates hightowerlabs-dot-com
 kubectl delete thirdpartyresources certificate.stable.hightower.com
-kubectl get secrets hightowerlabs hightowerlabs.com
+kubectl delete secrets hightowerlabs hightowerlabs.com
